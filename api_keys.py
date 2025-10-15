@@ -1,24 +1,15 @@
-# Purpose: Store all 15 API keys (3 difficulties × 5 topics).
+# Purpose: Store and automatically build all 15 URLs.
 
-# Each key is stored in a clear variable name, for example:
+# Base API Configuration (Constants)
 
-# Easy level keys (5 topics)
-# EASY_SCIENCE_KEY = "key_here"
-# EASY_HISTORY_KEY = "key_here"
-# EASY_SPORTS_KEY = "key_here"
-# EASY_MUSIC_KEY = "key_here"
-# EASY_TECH_KEY = "key_here"
+BASE_URL = "https://opentdb.com/api.php"                      # The start of the API URL is always the same
+DEFAULT_AMOUNT = 5                                            # Number of questions to request (5)
+QUESTION_TYPE = "multiple"                                    # Type of questions (Multiple or Boolean)
 
-# Medium level keys (5 topics)
-# MEDIUM_SCIENCE_KEY = "key_here"
-# MEDIUM_HISTORY_KEY = "key_here"
-# MEDIUM_SPORTS_KEY = "key_here"
-# MEDIUM_MUSIC_KEY = "key_here"
-# MEDIUM_TECH_KEY = "key_here"
+# Categories
 
-# Hard level keys (5 topics)
-# HARD_SCIENCE_KEY = "key_here"
-# HARD_HISTORY_KEY = "key_here"
-# HARD_SPORTS_KEY = "key_here"
-# HARD_MUSIC_KEY = "key_here"
-# HARD_TECH_KEY = "key_here"
+# Difficulty Levels
+
+# Function to build a complete API URL
+
+# Dictionary to hold all generated URLs
