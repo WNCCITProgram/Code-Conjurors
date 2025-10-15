@@ -31,11 +31,18 @@ def game_topic():
         
 #-Difficulty choice input function
 def game_difficulty():
-    difficulty = int(input("1. Easy" \
-    "\n2. Medium" \
-    "\n3. Hard" \
-    "\nChoose Your Difficulty: "))
-    return difficulty
+    #Create a while loop for input validation
+    while True:
+        difficulty_choice = int(input("1. Easy" \
+                        "\n2. Medium" \
+                        "\n3. Hard" \
+        "\nChoose Your Difficulty:"))
+        if difficulty_choice not in [1,2,3]:
+            print("Invalid choice, Please select a difficulty number.")
+        else:
+            print(f"You selected option {difficulty_choice}")
+            return {difficulty_choice}
+        
 #-fetch the questions based on input
 
 ##game
