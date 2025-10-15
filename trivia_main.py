@@ -9,6 +9,7 @@ import api_keys
 trivia_functions.game_title()
 
 # Ask for player name
+trivia_functions_player_name()
 
 # Ask for topic (1–5) and difficulty (1–3)
 
