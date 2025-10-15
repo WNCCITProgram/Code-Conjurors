@@ -37,7 +37,7 @@ def game_difficulty():
                         "\n2. Medium" \
                         "\n3. Hard" \
         "\nChoose Your Difficulty:"))
-        if difficulty_choice not in [1,2,3]:
+        if difficulty_choice not in [1, 2, 3]:
             print("Invalid choice, Please select a difficulty number.")
         else:
             print(f"You selected option {difficulty_choice}")
