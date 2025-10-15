@@ -3,13 +3,13 @@
 #-Display Game name function
 
 def game_title():
-    print("|------------------------------------------------------|")
-    print("|      WELCOME TO CODE CONJURORS TRIVIA CHALLENGE      |")
-    print("|------------------------------------------------------|")
+    print("|----------------------------------------------------------|")
+    print("|      WELCOME TO THE CODE CONJURORS TRIVIA CHALLENGE      |")
+    print("|----------------------------------------------------------|")
 
 #-Player name input function
 def player_name():
-    name = input("Enter your name:")
+    name = input("Enter your name: ")
     return name
     
 ##-Topic choice input function
@@ -31,7 +31,10 @@ def game_topic():
         
 #-Difficulty choice input function
 def game_difficulty():
-    difficulty = input("Easy(1), Medium(2), or Hard(3)? \nChoose Your Difficulty:")
+    difficulty = int(input("1. Easy" \
+    "\n2. Medium" \
+    "\n3. Hard" \
+    "\nChoose Your Difficulty: "))
     return difficulty
 #-fetch the questions based on input
 
