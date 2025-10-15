@@ -9,11 +9,15 @@ import api_keys
 trivia_functions.game_title()
 
 # Ask for player name
-trivia_functions_player_name()
+trivia_functions.player_name()
 
 # Ask for topic (1–5) and difficulty (1–3)
+trivia_functions.game_topic()
+
+trivia_functions.game_difficulty()
 
 # Use topic and difficulty to select correct API key
+
 
 # Fetch questions using that key via a helper function
 
