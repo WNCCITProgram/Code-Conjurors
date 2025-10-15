@@ -2,6 +2,9 @@
 
 #-Display Game name function
 
+def game_title():
+    print("GAME TITLE")
+
 #-Player name input function
 def player_name():
     pass
