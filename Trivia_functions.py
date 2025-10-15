@@ -3,13 +3,13 @@
 #-Display Game name function
 
 def game_title():
-    print("|------------------------------------------------------|")
-    print("|      WELCOME TO CODE CONJURORS TRIVIA CHALLENGE      |")
-    print("|------------------------------------------------------|")
+    print("|----------------------------------------------------------|")
+    print("|      WELCOME TO THE CODE CONJURORS TRIVIA CHALLENGE      |")
+    print("|----------------------------------------------------------|")
 
 #-Player name input function
 def player_name():
-    name = input("Enter your name:")
+    name = input("Enter your name: ")
     return name
     
 ##-Topic choice input function
@@ -31,13 +31,17 @@ def game_topic():
         
 #-Difficulty choice input function
 def game_difficulty():
+    #Create a while loop for input validation
     while True:
-        difficulty = input("Easy(1), Medium(2), or Hard(3)? \nChoose Your Difficulty:")
-        if difficulty not in [1,2,3]:
-            print("Invalid choice, pleaase select a difficulty level.")
+        difficulty_choice = int(input("1. Easy" \
+                        "\n2. Medium" \
+                        "\n3. Hard" \
+        "\nChoose Your Difficulty:"))
+        if difficulty_choice not in [1, 2, 3]:
+            print("Invalid choice, Please select a difficulty number.")
         else:
-            print(f"You selected option {difficulty}")
-            return {difficulty}
+            print(f"You selected option {difficulty_choice}")
+            return {difficulty_choice}
         
 #-fetch the questions based on input
 
