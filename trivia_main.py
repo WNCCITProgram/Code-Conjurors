@@ -6,6 +6,7 @@ import trivia_functions
 import api_keys
 
 # Display game title
+trivia_functions.game_title()
 
 # Ask for player name
 
