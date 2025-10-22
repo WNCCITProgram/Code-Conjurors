@@ -71,3 +71,12 @@ def api_test(topic_choice, difficulty_choice):
 #-relay back score and acuracy, all at the end
 
 #-continue game function, yes continue, no exit
+
+
+# TEST
+
+import api_keys
+
+url = api_keys.build_url(17, "easy")
+
+print(url)
