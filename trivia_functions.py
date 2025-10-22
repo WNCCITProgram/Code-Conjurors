@@ -17,7 +17,6 @@ def game_topic():
     #Create a while loop for input validation
     while True:
         try:
-            topic_choice = str(input("Enter the number for your trivia topic!:" \
                                     "\n1. Science" \
                                     "\n2. History" \
                                     "\n3. Sports" \
@@ -25,10 +24,7 @@ def game_topic():
                                     "\n5. Tech" \
                                     "\nPick a topic number: "))
         except ValueError:
-            print("Please enter a catagory 1-5\n")
             continue
-        if topic_choice not in ["Science", "History", "Sports", "Music", "Tech"]:
-            print("Invalid choice. Please select a topic choice.")
         else:
             print(f"You selected option {topic_choice}")
             return topic_choice
@@ -39,20 +35,14 @@ def game_difficulty():
     #Create a while loop for input validation
     while True:
         try:
-            difficulty_choice = str(input("1. Easy" \
                                         "\n2. Medium" \
                                         "\n3. Hard" \
             "\nChoose Your Difficulty:"))
         except ValueError:
-            print("Please enter a difficulty 1-3\n")
             continue
-        if difficulty_choice not in ["Easy", "Medium", "Hard"]:
-            print("Invalid choice. Please select a difficulty choice.")
             print(f"You selected option {difficulty_choice}")
             return difficulty_choice
         else:
-            print(f"You selected option {difficulty_choice}")
-            return difficulty_choice
 
         
 #-fetch the questions based on input
@@ -65,6 +55,32 @@ def api_test(topic_choice, difficulty_choice):
         api_key = "Science&Hard"
     print(f"{api_key}")
     return api_key
+def build_api(topic_choice, difficulty_choice):
+
+    #Find category ID from name
+    category_id = None
+    for name, cid in CATEGORIES_LIST:
+        if name.lower() == game_topic.lower():
+            category_id = cid
+            break
+
+    #Validate difficulty
+    if game_difficulty.lower() not in DIFFICULTIES_LIST:
+        raise ValueError("Invalid response. Choose Easy, Medium, or Hard.")
+    
+    #Build API
+    if category_id is None:
+        raise ValueError("Invalid category name. Choose from the list of topics.")
+    
+    api_url = (
+        f"{BASE_URL}?amount={DEFAULT_AMOUNT}"
+        f"&game_topic={category_id}"
+        f"&game_difficulty={difficulty_choice.lower()}"
+        f"&type={QUESTION_TYPE}"
+    )
+
+    return api_url
+
 
 ##game
 #-questions, choices
