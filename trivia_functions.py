@@ -17,7 +17,7 @@ def game_topic():
     #Create a while loop for input validation
     while True:
         try:
-            topic_choice = int(input("Enter the number for your trivia topic!:" \
+            topic_choice = str(input("Enter the name of your trivia topic!:" \
                                     "\n1. Science" \
                                     "\n2. History" \
                                     "\n3. Sports" \
@@ -25,31 +25,32 @@ def game_topic():
                                     "\n5. Tech" \
                                     "\nPick a topic number: "))
         except ValueError:
-            print("Please enter a number 1-5\n")
+            print("Please enter a topic 1-5\n")
             continue
-        if topic_choice in [1, 2, 3, 4, 5]:
+        if topic_choice not in ["Science", "History", "Sports", "Music", "Tech"]:
+            print("Invalid choice. Please select a topic choice.")
+        else:
             print(f"You selected option {topic_choice}")
             return topic_choice
-        else:
-            print("Invalid choice. Please select a topic number.")
         
 #-Difficulty choice input function
 def game_difficulty():
     #Create a while loop for input validation
     while True:
         try:
-            difficulty_choice = int(input("1. Easy" \
+            difficulty_choice = str(input("1. Easy" \
                                         "\n2. Medium" \
                                         "\n3. Hard" \
             "\nChoose Your Difficulty:"))
         except ValueError:
-            print("Please enter a number 1-3\n")
+            print("Please enter a difficulty 1-3\n")
             continue
-        if difficulty_choice in [1, 2, 3]:
+        if difficulty_choice not in ["Easy", "Medium", "Hard"]:
+            print("Invalid choice. Please select a difficulty.")
+            
+        else:
             print(f"You selected option {difficulty_choice}")
             return difficulty_choice
-        else:
-            print("Invalid choice, Please select a difficulty number.")
 
         
 #-fetch the questions based on input
