@@ -30,7 +30,6 @@ def get_category_id(category_name: str) -> int:
     for cat_name, cat_id in CATEGORIES_LIST:
         if cat_name.lower() == category_name.lower():
             return cat_id
-    raise ValueError(f"Unknown category name: {category_name}")
 
 # Function to build a complete API URL
 
