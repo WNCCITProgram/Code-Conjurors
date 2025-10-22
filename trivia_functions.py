@@ -18,6 +18,51 @@ def game_title():
 def player_name():
     name = input("Enter your name: ")
     return name
+<<<<<<< HEAD
+=======
+    
+##-Topic choice input function
+def game_topic():
+    #Create a while loop for input validation
+    while True:
+        try:
+            topic_choice = str(input("Enter the number for your trivia topic!:" \
+                                    "\n1. Science" \
+                                    "\n2. History" \
+                                    "\n3. Sports" \
+                                    "\n4. Music" \
+                                    "\n5. Tech" \
+                                    "\nPick a topic number: "))
+        except ValueError:
+            print("Please enter a catagory 1-5\n")
+            continue
+        if topic_choice not in ["Science", "History", "Sports", "Music", "Tech"]:
+            print("Invalid choice. Please select a topic choice.")
+        else:
+            print(f"You selected option {topic_choice}")
+            return topic_choice
+            
+        
+#-Difficulty choice input function
+def game_difficulty():
+    #Create a while loop for input validation
+    while True:
+        try:
+            difficulty_choice = str(input("1. Easy" \
+                                        "\n2. Medium" \
+                                        "\n3. Hard" \
+            "\nChoose Your Difficulty:"))
+        except ValueError:
+            print("Please enter a difficulty 1-3\n")
+            continue
+        if difficulty_choice not in ["Easy", "Medium", "Hard"]:
+            print("Invalid choice. Please select a difficulty choice.")
+            print(f"You selected option {difficulty_choice}")
+            return difficulty_choice
+        else:
+            print(f"You selected option {difficulty_choice}")
+            return difficulty_choice
+>>>>>>> 97a748099d0eecbe88dae4dd16d5297e74893dc2
 
 # Topic choice input function
 # MODIFY: Changed to accept string inputs and use 'not in' validation
