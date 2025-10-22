@@ -18,6 +18,7 @@ trivia_functions.api_test(
     difficulty_choice=game_difficulty()
     )
 
+
 # Fetch questions using that key via a helper function
 
 # Start quiz loop
