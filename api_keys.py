@@ -40,3 +40,9 @@ def build_url(category_id: int, difficulty: str) -> str:
 
 # Dictionary to hold all generated URLs
 
+
+
+
+# THINGS TO DO:
+## Make it so that the cat_id in the new function is used as the category_id in the url builder. Right now, it is using whatever is entered, even if it is a string.
+## Make it so that it can work with trivia_functions
