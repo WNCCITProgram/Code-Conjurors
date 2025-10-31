@@ -1,4 +1,5 @@
 #Function Psuedo
+import api_keys
 
 #-Display Game name function
 
@@ -51,32 +52,30 @@ def game_difficulty():
             print(f"You selected option {difficulty_choice}")
             return difficulty_choice
 
-        
-#-fetch the questions based on input
-def api_test(topic_choice, difficulty_choice):
-    if topic_choice == "Science" and difficulty_choice == "Easy":
-        api_key = "Science&Easy"
-    elif topic_choice == "Science" and difficulty_choice == "Medium":
-        api_key = "Science&Medium"
-    elif topic_choice == "Science" and difficulty_choice == "Hard":
-        api_key = "Science&Hard"
-    print(f"{api_key}")
-    return api_key
-
 ##game
-#-questions, choices
-#-input
-#-answer check, score
+def game_loop():
+    while True:
+        # Display each question and choices
+        # Call function to ask for questions and difficulty choices
+        topic_choice = game_topic()
+        difficulty_choice = game_difficulty()
 
-#-relay back score and acuracy, all at the end
+        # Build URL Based on previous answers
 
-#-continue game function, yes continue, no exit
+        url = api_keys.build_url(topic_choice, difficulty_choice)
 
+        #PRINT URL JUST FOR TESTING REASONS
+        print(url)
 
-# TEST
+        #-answer check, score
 
-import api_keys
+        #-relay back score and acuracy, all at the end
 
-url = api_keys.build_url(17, "easy")
+        #-continue game function, yes continue, no exit
+        ask = input("Play another round? (Y/N): ").upper()
 
-print(url)
+        if input == "N":
+            break
+
+        else:
+            continue

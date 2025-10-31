@@ -12,35 +12,8 @@ trivia_functions.game_title()
 # Ask for player name
 trivia_functions.player_name()
 
-# Use function that runs topic and difficulty function and then pulls an API key
-"""
-trivia_functions.api_test(
-    topic_choice=game_topic(),
-    difficulty_choice=game_difficulty()
-    )
-"""
-
-# Fetch questions using that key via a helper function
-
-# Start quiz loop
-while True:
-    # Display each question and choices
-    # Call function to ask for questions and difficulty choices
-    trivia_functions.game_topic()
-    trivia_functions.game_difficulty()
-
-    # Get user question inputs for those questions
-
-    # Check correctness, update score
-
-    #End Game
-    ask = input("Play another round? (Y/N): ").upper()
-
-    if input == "N":
-        break
-
-    else:
-        continue
+# call game loop
+trivia_functions.game_loop()
 
 #Show total score and accuracy at the end
 
