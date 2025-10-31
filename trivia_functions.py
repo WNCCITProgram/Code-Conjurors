@@ -41,7 +41,7 @@ def game_difficulty():
             difficulty_choice = str(input("1. Easy" \
                                         "\n2. Medium" \
                                         "\n3. Hard" \
-            "\nChoose Your Difficulty:"))
+            "\nChoose Your Difficulty: "))
         except ValueError:
             print("Please enter a difficulty name: \n")
             continue
