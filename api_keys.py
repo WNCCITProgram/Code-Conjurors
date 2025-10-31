@@ -33,7 +33,9 @@ def get_category_id(category_name: str) -> int:
 
 # Function to build a complete API URL
 
-def build_url(category_id: int, difficulty: str) -> str:
+def build_url(category_id, difficulty: str) -> str:
+    if isinstance(category_id, str):                                              # Research shows isinstance is a build in command that checks what data type the variable is before using it
+        category_id = get_category_id(category_id)
     api_url = f"{BASE_URL}?amount={DEFAULT_AMOUNT}&category={category_id}&difficulty={difficulty}&type={QUESTION_TYPE}"
     return api_url
 
@@ -43,5 +45,4 @@ def build_url(category_id: int, difficulty: str) -> str:
 
 
 # THINGS TO DO:
-## Make it so that the cat_id in the new function is used as the category_id in the url builder. Right now, it is using whatever is entered, even if it is a string.
 ## Make it so that it can work with trivia_functions
