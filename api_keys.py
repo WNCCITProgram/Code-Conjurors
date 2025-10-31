@@ -39,10 +39,5 @@ def build_url(category_id, difficulty: str) -> str:
     api_url = f"{BASE_URL}?amount={DEFAULT_AMOUNT}&category={category_id}&difficulty={difficulty.lower()}&type={QUESTION_TYPE}"
     return api_url
 
-# Dictionary to hold all generated URLs
-
-
-
-
 # THINGS TO DO:
 ## Make it so that it can work with trivia_functions
