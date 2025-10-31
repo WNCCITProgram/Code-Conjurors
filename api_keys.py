@@ -36,7 +36,7 @@ def get_category_id(category_name: str) -> int:
 def build_url(category_id, difficulty: str) -> str:
     if isinstance(category_id, str):                                              # Research shows isinstance is a build in command that checks what data type the variable is before using it
         category_id = get_category_id(category_id)
-    api_url = f"{BASE_URL}?amount={DEFAULT_AMOUNT}&category={category_id}&difficulty={difficulty}&type={QUESTION_TYPE}"
+    api_url = f"{BASE_URL}?amount={DEFAULT_AMOUNT}&category={category_id}&difficulty={difficulty.lower()}&type={QUESTION_TYPE}"
     return api_url
 
 # Dictionary to hold all generated URLs
