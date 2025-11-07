@@ -24,7 +24,7 @@ def game_topic():
                                     "\n3. Sports" \
                                     "\n4. Music" \
                                     "\n5. Tech" \
-                                    "\nPick a topic number: "))
+                                    "\nPick a topic number: ")).capitalize()
         except ValueError:
             print("Please enter a topic name: \n")
             continue
@@ -42,7 +42,7 @@ def game_difficulty():
             difficulty_choice = str(input("1. Easy" \
                                         "\n2. Medium" \
                                         "\n3. Hard" \
-            "\nChoose Your Difficulty: "))
+            "\nChoose Your Difficulty: ")).capitalize()
         except ValueError:
             print("Please enter a difficulty name: \n")
             continue
@@ -72,9 +72,9 @@ def game_loop():
         #-relay back score and acuracy, all at the end
 
         #-continue game function, yes continue, no exit
-        ask = input("Play another round? (Y/N): ").upper()
+        replay_ask = input("Play another round? (Y/N): ").upper()
 
-        if input == "N":
+        if replay_ask == "N":
             break
 
         else:

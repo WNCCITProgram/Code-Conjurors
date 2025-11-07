@@ -2,7 +2,7 @@
 
 # Import functions file
 import trivia_functions
-from trivia_functions import game_topic, game_difficulty, api_test
+from trivia_functions import game_topic, game_difficulty
 # Import api_key file
 import api_keys
 
