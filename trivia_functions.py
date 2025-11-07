@@ -1,6 +1,11 @@
 #Function Psuedo
 import api_keys
 
+# Requests to get the JSON from the URL, HTML for site entities, and Random for shuffling the choices
+import requests
+import html
+import random
+
 #-Display Game name function
 
 def game_title():
@@ -79,3 +84,58 @@ def game_loop():
 
         else:
             continue
+
+# Get the questions from the API URL and turn them into usable items
+def fetch_questions(api_url: str):
+    # Ask API for JSON data using the URL that was created. AI was used to help understand what to do in this section.
+    try:
+        # Goes to the website and get's JSON data
+        r = requests.get(api_url, timeout=10)
+        # Checks for errors
+        r.raise_for_status()
+        # Turns JSON data into a python library
+        data = r.json()
+    # If request takes too long (10 seconds)
+    except requests.exceptions.Timeout():
+        print("\nThe Request timed out. Please try again.\n")
+        return []
+    # If there is a network or HTTP error
+    except requests.exceptions.RequestException as e:
+        print("\nNetwork or HTTP error: {e}\n")
+        return []
+    # If there is an invalid JSON
+    except ValueError:
+        print("\nReceived a response, but it was not a valid JSON.\n")
+        return []
+    
+    # Check if the server found questions (response_code 0 means success) (data.get("results") checks for an empty list)
+    if data.get("response_code") != 0 or not data.get("results"):
+        print("\nNo questsions found for that choice. Try a different topic or difficulty.\n")
+        return []
+    
+    # Empty list that will hold the questions
+    prepared = []
+
+    # Loop through the questions we got from the API URL
+    for item in data["results"]:
+        # For the next 3 lines, html.unescape will clean up the text so that HTML codes are turned into normal characters
+        question_text = html.unescape(item.get("question", ""))
+        correct = html.unescape(item.get("correct_answer", ""))
+        incorrect = html.unescape(item.get("incorrect_answers", ""))
+
+        # Combine all answers into a list
+        choices = incorrect + [correct]
+        # Shuffle the answers
+        random.shuffle(choices)
+
+        # Finds the location of the correct answer in the list
+        answer_location = choices.index(correct)
+
+        # Puts all of the cleaned up questions, answers, and location of the correct answer in an empty list
+        prepared.append({
+            "question": question_text,
+            "choices": choices,
+            "answer_location": answer_location
+        })
+    
+    return prepared
