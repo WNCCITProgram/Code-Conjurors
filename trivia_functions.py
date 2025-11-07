@@ -69,8 +69,8 @@ def game_loop():
 
         url = api_keys.build_url(topic_choice, difficulty_choice)
 
-        #PRINT URL JUST FOR TESTING REASONS
-        print(url)
+        #Return the URL
+        return(url)
 
         #-answer check, score
 
@@ -121,7 +121,7 @@ def fetch_questions(api_url: str):
         # For the next 3 lines, html.unescape will clean up the text so that HTML codes are turned into normal characters
         question_text = html.unescape(item.get("question", ""))
         correct = html.unescape(item.get("correct_answer", ""))
-        incorrect = html.unescape(item.get("incorrect_answers", ""))
+        incorrect = [html.unescape(x) for x in item.get("incorrect_answers", [])]
 
         # Combine all answers into a list
         choices = incorrect + [correct]
