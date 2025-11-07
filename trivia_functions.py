@@ -97,21 +97,21 @@ def fetch_questions(api_url: str):
         # Turns JSON data into a python library
         data = r.json()
     # If request takes too long (10 seconds)
-    except requests.exceptions.Timeout():
-        print("\nThe Request timed out. Please try again.\n")
+    except requests.exceptions.Timeout:
+        print(f"\nThe Request timed out. Please try again.\n")
         return []
     # If there is a network or HTTP error
     except requests.exceptions.RequestException as e:
-        print("\nNetwork or HTTP error: {e}\n")
+        print(f"\nNetwork or HTTP error: {e}\n")
         return []
     # If there is an invalid JSON
     except ValueError:
-        print("\nReceived a response, but it was not a valid JSON.\n")
+        print(f"\nReceived a response, but it was not a valid JSON.\n")
         return []
     
     # Check if the server found questions (response_code 0 means success) (data.get("results") checks for an empty list)
     if data.get("response_code") != 0 or not data.get("results"):
-        print("\nNo questsions found for that choice. Try a different topic or difficulty.\n")
+        print("\nNo questions found for that choice. Try a different topic or difficulty.\n")
         return []
     
     # Empty list that will hold the questions, answers, and answer location
