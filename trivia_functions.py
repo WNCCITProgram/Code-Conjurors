@@ -113,7 +113,7 @@ def fetch_questions(api_url: str):
         print("\nNo questsions found for that choice. Try a different topic or difficulty.\n")
         return []
     
-    # Empty list that will hold the questions
+    # Empty list that will hold the questions, answers, and answer location
     prepared = []
 
     # Loop through the questions we got from the API URL
