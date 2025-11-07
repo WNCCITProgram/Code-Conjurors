@@ -69,8 +69,9 @@ def game_loop():
 
         url = api_keys.build_url(topic_choice, difficulty_choice)
 
-        #Return the URL
-        return(url)
+        # Provide the questions
+        questions = fetch_questions(url)
+        print (questions)
 
         #-answer check, score
 
