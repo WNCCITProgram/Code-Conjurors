@@ -71,7 +71,36 @@ def game_loop():
 
         # Provide the questions
         questions = fetch_questions(url)
-        print (questions)
+        if not questions:
+            print("\nNo questions found. Try again.\n")
+            continue
+
+        score = 0
+        for i, q in enumerate(questions, start=1):
+            print(f"\nQ{i}. {q['question']}")
+            for j, choice in enumerate(q["choices"], start=1):
+                print(f"   {j}) {choice}")
+
+            # get an answer for THIS question before moving on
+            while True:
+                ans = input("Your answer (1-4): ").strip()
+                if ans.isdigit() and 1 <= int(ans) <= 4:
+                    break
+                print("Please enter 1, 2, 3, or 4.")
+
+            if int(ans) - 1 == q["answer_location"]:
+                print("Correct!")
+                score += 1
+            else:
+                correct_text = q["choices"][q["answer_location"]]
+                print(f"Incorrect. Correct: {correct_text}")
+
+        # summary after all questions
+        total = len(questions)
+        accuracy = (score / total) * 100 if total else 0
+        print("\n--------------------------------")
+        print(f"Score: {score}/{total}  |  Accuracy: {accuracy:.0f}%")
+        print("--------------------------------")
 
         #-answer check, score
 
